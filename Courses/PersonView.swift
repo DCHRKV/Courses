@@ -11,7 +11,7 @@ struct PersonView: View {
     var body: some View {
         NavigationView {
             List {
-                VStack(spacing: 20) {
+                VStack(spacing: 10) {
                     Image(systemName:
                             "person.crop.circle.fill.badge.checkmark")
                     .symbolVariant(.circle.fill)
@@ -19,16 +19,18 @@ struct PersonView: View {
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(.blue, .blue.opacity(0.3))
                     .padding()
-                .background(Circle().fill(.ultraThinMaterial))
-                .background(
-                    Image("Background 7")
-                        .offset(x: -50, y: -330)
-                
-                )
+                    .background(Circle().fill(.ultraThinMaterial))
+                    .background(
+                        Image("Background 7")
+                            .offset(x: -50, y: -330)
+                    )
                     Text("Dmytro Churakov")
-                        .font(.title.weight(.semibold))
+                        .font(.title.weight(.bold))
+                    Text("dchurakov97gmail.com")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                     Text("Ukraine")
-                        .font(.subheadline)
+                        .font(.title.weight(.semibold))
                         .foregroundStyle(.linearGradient(colors: [.blue, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing))
                 }
                 .frame(maxWidth: .infinity)
@@ -48,6 +50,10 @@ struct PersonView: View {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView()
+        Group {
+            PersonView()
+            PersonView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
