@@ -34,9 +34,15 @@ struct PersonView: View {
             .foregroundStyle(.blue, .blue.opacity(0.3))
             .padding()
             .background(Circle().fill(.ultraThinMaterial))
+//            .background(
+//                Image("Background 7")
+//                    .offset(x: -50, y: -330)
+//            )
             .background(
-                Image("Background 7")
-                    .offset(x: -50, y: -330)
+                BlobView()
+                    .offset(x: 200, y: 0)
+                    .scaleEffect(1.0)
+                
             )
             Text("Dmytro Churakov")
                 .font(
