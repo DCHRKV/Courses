@@ -13,6 +13,7 @@
 		27C3185928EA2410006805AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3185828EA2410006805AC /* ContentView.swift */; };
 		27C3185B28EA2412006805AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C3185A28EA2412006805AC /* Assets.xcassets */; };
 		27C3185E28EA2412006805AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C3185D28EA2412006805AC /* Preview Assets.xcassets */; };
+		27D36B5528EDDB3100793563 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D36B5428EDDB3000793563 /* BlobView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		27C3185828EA2410006805AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		27C3185A28EA2412006805AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27C3185D28EA2412006805AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27D36B5428EDDB3000793563 /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				27C3185628EA2410006805AC /* CoursesApp.swift */,
 				27C3185828EA2410006805AC /* ContentView.swift */,
 				2772B7F328EC688E00399C27 /* PersonView.swift */,
+				27D36B5428EDDB3000793563 /* BlobView.swift */,
 				2772B7F128EC4D7700399C27 /* Styles.swift */,
 				27C3185A28EA2412006805AC /* Assets.xcassets */,
 				27C3185C28EA2412006805AC /* Preview Content */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D36B5528EDDB3100793563 /* BlobView.swift in Sources */,
 				2772B7F228EC4D7700399C27 /* Styles.swift in Sources */,
 				2772B7F428EC688E00399C27 /* PersonView.swift in Sources */,
 				27C3185928EA2410006805AC /* ContentView.swift in Sources */,
