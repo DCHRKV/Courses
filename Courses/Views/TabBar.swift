@@ -8,31 +8,42 @@
 import SwiftUI
 
 struct TabBar: View {
+    @State var selectedTab: Tab = .home
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            ContentView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Group {
+                switch selectedTab {
+                case .home:
+                    ContentView()
+                case .notifications:
+                    PersonView()
+                case .account:
+                    PersonView()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
             HStack {
-                Spacer()
-                VStack(spacing: 0) {
-                    Image(systemName: "book")
-                        .symbolVariant(.fill)
-                        .font(.body.bold())
-                        .frame(width: 80, height: 30)
-                    Text("Learn now")
-                        .font(.caption2)
+                ForEach(tabItems) { item in
+                    Button {
+                        selectedTab = item.tab
+                    } label: {
+                        VStack(spacing: 0) {
+                            Image(systemName: item.image)
+                                .symbolVariant(.fill)
+                                .font(.body.bold())
+                                .frame(width: 44, height: 30)
+                            Text(item.name)
+                                .font(.caption2)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .foregroundStyle(selectedTab == item.tab ? .primary : .secondary)
                 }
-                Spacer()
-                VStack(spacing: 0) {
-                    Image(systemName: "person")
-                        .symbolVariant(.fill)
-                        .font(.body.bold())
-                        .frame(width: 80, height: 30)
-                    Text("Account")
-                        .font((.caption2))
-                }
-                Spacer()
-        }
+            }
+            .padding(.horizontal, 8)
             .padding(.top, 14)
             .frame(height: 88, alignment: .top)
             .background(.ultraThinMaterial, in:
@@ -40,8 +51,8 @@ struct TabBar: View {
             .strokeStyle(cornerRadius: 30)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
+        }
     }
-}
 }
 
 struct TabBar_Previews: PreviewProvider {
