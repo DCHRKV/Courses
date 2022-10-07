@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Courses
 //
-//  Created by Dmytro Churakov on 02.10.2022.
+//  Created by Dmytro Churakov on 07.10.2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             Spacer()
@@ -32,7 +32,7 @@ struct ContentView: View {
                 .multilineTextAlignment(.leading)
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(.secondary)            
+                .foregroundStyle(.secondary)
         }
         .padding(.all, 20.0)
         .padding(.vertical, 20)
@@ -49,19 +49,11 @@ struct ContentView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: 210)
             .offset(x: 40, y: -70)
-        )
-    }
+        )    }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-                .previewDevice("iPhone 13")
-            ContentView()
-                .preferredColorScheme(.dark)
-                .previewDevice("iPhone 13")
-        }
-        
+        HomeView()
     }
 }
