@@ -63,7 +63,7 @@ struct PersonView: View {
     
     var menu: some View {
         Section {
-            NavigationLink(destination: ContentView()) {
+            NavigationLink(destination: HomeView()) {
                 Label("Courses", systemImage: "book")
             }
             Label("Settings", systemImage: "gearshape")
