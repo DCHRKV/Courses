@@ -1,13 +1,13 @@
 //
-//  HomeView.swift
+//  FeaturedItem.swift
 //  Courses
 //
-//  Created by Dmytro Churakov on 07.10.2022.
+//  Created by Dmytro Churakov on 11.10.2022.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct FeaturedItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             Spacer()
@@ -15,7 +15,7 @@ struct HomeView: View {
                 .resizable(resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 26.0, height: 26.0)
-                .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+                .cornerRadius(20.0)
                 .padding(9)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .strokeStyle(cornerRadius: 20)
@@ -49,11 +49,11 @@ struct HomeView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: 210)
             .offset(x: 40, y: -70)
-        )    }
+    )    }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        FeaturedItem()
     }
 }

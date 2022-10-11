@@ -12,21 +12,20 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             
-            Group {
-                switch selectedTab {
-                case .home:
-                    HomeView()
-                case .explore:
-                    PersonView()
-                case .notifications:
-                    HomeView()
-                case .account:
-                    PersonView()
-                }
+            switch selectedTab {
+            case .home:
+                HomeView()
+            case .explore:
+                PersonView()
+            case .notifications:
+                HomeView()
+            case .account:
+                PersonView()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
             TabBar()
+        }
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 45)
         }
     }
 }

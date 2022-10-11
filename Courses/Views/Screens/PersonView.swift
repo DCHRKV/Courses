@@ -24,7 +24,7 @@ struct PersonView: View {
     }
     
     
-    var profile: some View {
+    private var profile: some View {
         VStack(spacing: 10) {
             Image(systemName:
                     "person.crop.circle.fill.badge.checkmark")
@@ -34,10 +34,6 @@ struct PersonView: View {
             .foregroundStyle(.blue, .blue.opacity(0.3))
             .padding()
             .background(Circle().fill(.ultraThinMaterial))
-//            .background(
-//                Image("Background 7")
-//                    .offset(x: -50, y: -330)
-//            )
             .background(
                 BlobView()
                     .offset(x: 200, y: 0)
@@ -61,7 +57,7 @@ struct PersonView: View {
     }
     
     
-    var menu: some View {
+    private var menu: some View {
         Section {
             NavigationLink(destination: HomeView()) {
                 Label("Courses", systemImage: "book")
@@ -74,7 +70,7 @@ struct PersonView: View {
     }
     
     
-    var links: some View {
+    private var links: some View {
         Section {
             Link(destination: URL(string: "https://designcode.io")!) {
                 HStack {
