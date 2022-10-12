@@ -49,7 +49,8 @@ struct FeaturedItem: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: 210)
             .offset(x: 40, y: -70)
-    )    }
+    )
+    }
 }
 
 struct FeaturedItem_Previews: PreviewProvider {

@@ -65,7 +65,7 @@ struct PersonView: View {
             Label("Settings", systemImage: "gearshape")
             Label("Payment", systemImage: "creditcard.and.123")
             Label("Help", systemImage: "questionmark.circle")
-        }
+        } 
         .listRowSeparator(.hidden)
     }
     
