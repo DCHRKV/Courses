@@ -25,7 +25,6 @@ struct FeaturedItem: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.linearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-                .lineLimit(1)
             Text(course.subtitle.uppercased())
                 .font(.footnote)
                 .fontWeight(.semibold)
@@ -33,7 +32,7 @@ struct FeaturedItem: View {
             Text(course.text)
                 .font(.footnote)
                 .multilineTextAlignment(.leading)
-                .lineLimit(2)
+                .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(.secondary)
         }
@@ -41,15 +40,8 @@ struct FeaturedItem: View {
         .padding(.vertical, 20)
         .frame(height: 350.0)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
         .strokeStyle()
         .padding(.horizontal, 20)
-        .overlay(Image(course.image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 210)
-            .offset(x: 40, y: -70)
-    )
     }
 }
 

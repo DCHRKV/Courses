@@ -20,16 +20,6 @@ struct HomeView: View {
                 Color.clear.frame(height: 1000)
             }
             .coordinateSpace(name: "scroll")
-            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-                withAnimation(.easeInOut) {
-                    if value < 0 {
-                        hasScrolled = true
-                    } else {
-                        hasScrolled = false
-                    }
-                }
-                
-            })
             .safeAreaInset(edge: .top, content: {
                 Color.clear.frame(height: 70)
             })
@@ -39,17 +29,38 @@ struct HomeView: View {
         }
     }
     
-    private var scrollDetection: some View {
+    var scrollDetection: some View {
         GeometryReader { proxy in
             Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
         }
         .frame(height: 0)
+        .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
+            withAnimation(.easeInOut) {
+                if value < 0 {
+                    hasScrolled = true
+                } else {
+                    hasScrolled = false
+                }
+            }
+            
+        }) 
     }
     
-    private var featured: some View {
+    var featured: some View {
         TabView {
-            ForEach(courses) { item in
-                FeaturedItem(course: item)
+            ForEach(courses) { course in
+                GeometryReader { proxy in
+                    FeaturedItem(course: course)
+                        .padding(.vertical, 40)
+                        .rotation3DEffect(.degrees(proxy.frame(in: .global).minX / 5), axis: (x: 1, y: 1, z: 0))
+                        .shadow(color: Color("Shadow").opacity(0.4), radius: 10, x: 0, y: 10)
+                        .overlay(Image(course.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 210)
+                            .offset(x: 40, y: -95)
+                    )
+                }
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

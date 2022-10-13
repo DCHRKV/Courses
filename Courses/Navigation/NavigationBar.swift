@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NavigationBar: View {
-    
     var title = ""
     @Binding var hasScrolled: Bool
     
@@ -26,7 +25,7 @@ struct NavigationBar: View {
                 .padding(.top, 20)
                 .offset(y: hasScrolled ? -4 : 0)
             
-            HStack {
+            HStack(spacing: 15) {
                 Image(systemName: "magnifyingglass")
                     .font(.body.weight(.bold))
                     .frame(width: 35, height: 35)
