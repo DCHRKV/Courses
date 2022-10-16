@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var hasScrolled = false
+    @State private var hasCollapsed = false
+    private let coordinates = "scroll"
     
     var body: some View {
         ZStack {
@@ -17,33 +18,28 @@ struct HomeView: View {
             ScrollView {
                 scrollDetection
                 featured
-                Color.clear.frame(height: 1000)
             }
-            .coordinateSpace(name: "scroll")
+            .coordinateSpace(name: coordinates)
             .safeAreaInset(edge: .top, content: {
-                Color.clear.frame(height: 70)
+                Color.clear.frame(height: 100)
             })
             .overlay(
-                NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
+                NavigationBar(title: "Featured", hasScrolled: $hasCollapsed)
         )
         }
     }
     
     var scrollDetection: some View {
         GeometryReader { proxy in
-            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
+            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named(coordinates)).minY)
         }
         .frame(height: 0)
         .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
             withAnimation(.easeInOut) {
-                if value < 0 {
-                    hasScrolled = true
-                } else {
-                    hasScrolled = false
-                }
+                hasCollapsed = value < 0
             }
-            
-        }) 
+        })
+        
     }
     
     var featured: some View {
