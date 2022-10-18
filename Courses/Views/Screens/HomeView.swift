@@ -24,7 +24,7 @@ struct HomeView: View {
                 Color.clear.frame(height: 100)
             })
             .overlay(
-                NavigationBar(title: "Featured", hasScrolled: $hasCollapsed)
+                NavigationBar(title: "Featured", hasCollapsed: $hasCollapsed)
         )
         }
     }

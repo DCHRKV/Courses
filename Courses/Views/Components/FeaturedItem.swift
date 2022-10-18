@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeaturedItem: View {
-    var course: Course = courses[0]
+    var course: Course
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
@@ -47,6 +47,6 @@ struct FeaturedItem: View {
 
 struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItem()
+        FeaturedItem(course: courses[0])
     }
 }
