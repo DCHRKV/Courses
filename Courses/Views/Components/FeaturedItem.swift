@@ -1,36 +1,38 @@
 //
-//  HomeView.swift
+//  FeaturedItem.swift
 //  Courses
 //
-//  Created by Dmytro Churakov on 07.10.2022.
+//  Created by Dmytro Churakov on 11.10.2022.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct FeaturedItem: View {
+    var course: Course
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             Spacer()
-            Image("Logo 2")
+            Image(course.logo)
                 .resizable(resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 26.0, height: 26.0)
-                .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+                .cornerRadius(20.0)
                 .padding(9)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .strokeStyle(cornerRadius: 20)
-            Text("SwiftUI for iOS 15")
+            Text(course.title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.linearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-            Text("20 sections - 3 hours".uppercased())
+            Text(course.subtitle.uppercased())
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .foregroundStyle(.secondary)
-            Text("Build an iOS app for iOS 15 with custom layouts, animations and ...")
+            Text(course.text)
                 .font(.footnote)
                 .multilineTextAlignment(.leading)
-                .lineLimit(2)
+                .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(.secondary)
         }
@@ -38,22 +40,13 @@ struct HomeView: View {
         .padding(.vertical, 20)
         .frame(height: 350.0)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
         .strokeStyle()
         .padding(.horizontal, 20)
-        .background(
-            Image("Blob 1")
-                .offset(x: 20))
-        .overlay(Image("Illustration 5")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 210)
-            .offset(x: 40, y: -70)
-        )    }
+    }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        FeaturedItem(course: courses[0])
     }
 }
