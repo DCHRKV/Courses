@@ -14,7 +14,6 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
-
             ScrollView {
                 scrollDetection
                 featured
@@ -25,7 +24,7 @@ struct HomeView: View {
             })
             .overlay(
                 NavigationBar(title: "Featured", hasCollapsed: $hasCollapsed)
-        )
+            )
         }
     }
 
@@ -55,7 +54,7 @@ struct HomeView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 210)
                             .offset(x: 40, y: -95)
-                    )
+                        )
                 }
             }
         }

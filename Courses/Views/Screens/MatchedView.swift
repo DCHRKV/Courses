@@ -14,20 +14,100 @@ struct MatchedView: View {
     var body: some View {
         ZStack {
             if !show {
-                collapsedCourseView
-                .padding(20)
+                VStack {
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("SwiftUI for iOS 15")
+                            .font(.largeTitle.weight(.bold))
+                            .matchedGeometryEffect(id: "title", in: namespace)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("20 sections - 3 hours".uppercased())
+                            .font(.footnote.weight(.semibold))
+                            .matchedGeometryEffect(id: "subtitle", in: namespace)
+                        Text("Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more")
+                            .font(.footnote)
+                            .lineLimit(1)
+                            .matchedGeometryEffect(id: "text", in: namespace)
+                    }
+                    .padding(20)
+                    .background(
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                            .blur(radius: 30)
+                            .matchedGeometryEffect(id: "blur", in: namespace)
+                    )
+                }
                 .foregroundStyle(.white)
                 .background(
-                    Color.black.matchedGeometryEffect(id: "background", in: namespace)
+                    Image("Illustration 5")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "image", in: namespace)
                 )
+                .background(
+                    Image("Background 3")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                )
+                .mask {
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .matchedGeometryEffect(id: "mask", in: namespace)
+                }
+                .frame(height: 300)
                 .padding(20)
             } else {
-                expandedCourseView
-                .padding(20)
-                .foregroundStyle(.black)
-                .background(
-                    Color.blue.matchedGeometryEffect(id: "background", in: namespace)
-                )
+                ScrollView {
+                    VStack {
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 500)
+                    .foregroundStyle(.black)
+                    .background(
+                        Image("Illustration 5")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .matchedGeometryEffect(id: "image", in: namespace)
+                    )
+                    .background(
+                        Image("Background 3")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .matchedGeometryEffect(id: "background", in: namespace)
+                    )
+                    .mask(
+                        RoundedRectangle(cornerRadius: 30, style: .continuous)
+                            .matchedGeometryEffect(id: "mask", in: namespace)
+                    )
+                    .overlay(
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("SwiftUI for iOS 15")
+                                .font(.largeTitle.weight(.bold))
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
+                                .matchedGeometryEffect(id: "title", in: namespace)
+                            Text("20 sections - 3 hours".uppercased())
+                                .font(.footnote.weight(.semibold))
+                                .matchedGeometryEffect(id: "subtitle", in: namespace)
+                            Text("Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more")
+                                .font(.footnote)
+                                .lineLimit(1)
+                                .matchedGeometryEffect(id: "text", in: namespace)
+                                .foregroundStyle(.black)
+                        }
+                            .padding(20)
+                            .background(
+                                Rectangle()
+                                    .fill(.ultraThinMaterial)
+                                    .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                    .matchedGeometryEffect(id: "blur", in: namespace)
+                            )
+                            .offset(y: 240)
+                            .padding(20)
+                    )
+                }
             }
         }
         .onTapGesture {
@@ -36,43 +116,6 @@ struct MatchedView: View {
             }
         }
     }
-
-    var collapsedCourseView: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Build a SwiftUI app for iOS 15")
-                .font(.largeTitle.weight(.bold))
-                .lineLimit(1)
-                .matchedGeometryEffect(id: "title", in: namespace)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text("20 sections - 3 hours".uppercased())
-                .font(.footnote.weight(.semibold))
-                .matchedGeometryEffect(id: "subtitle", in: namespace)
-            Text("Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more")
-                .font(.footnote)
-                .lineLimit(1)
-                .matchedGeometryEffect(id: "text", in: namespace)
-        }
-    }
-
-    var expandedCourseView: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Spacer()
-            Text("Build a SwiftUI app for iOS 15")
-                .font(.largeTitle.weight(.bold))
-                .lineLimit(1)
-                .matchedGeometryEffect(id: "title", in: namespace)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Text("20 sections - 3 hours".uppercased())
-                .font(.footnote.weight(.semibold))
-                .matchedGeometryEffect(id: "subtitle", in: namespace)
-            Text("Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more")
-                .font(.footnote)
-                .lineLimit(1)
-                .matchedGeometryEffect(id: "text", in: namespace)
-        }
-    }
-
 }
 
 struct MatchedView_Previews: PreviewProvider {
