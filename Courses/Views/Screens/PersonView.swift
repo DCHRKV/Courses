@@ -8,22 +8,19 @@
 import SwiftUI
 
 struct PersonView: View {
-    
-    
+
     var body: some View {
         NavigationView {
             List {
                 profile
                 menu
                 links
-                
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
         }
     }
-    
-    
+
     private var profile: some View {
         VStack(spacing: 10) {
             Image(systemName:
@@ -38,7 +35,7 @@ struct PersonView: View {
                 BlobView()
                     .offset(x: 200, y: 0)
                     .scaleEffect(1.0)
-                
+
             )
             Text("Dmytro Churakov")
                 .font(
@@ -50,13 +47,16 @@ struct PersonView: View {
                 .foregroundStyle(.secondary)
             Text("Ukraine")
                 .font(.title.weight(.semibold))
-                .foregroundStyle(.linearGradient(colors: [.blue, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .foregroundStyle(
+                    .linearGradient(colors:
+                                        [.blue, .yellow], startPoint:
+                            .topLeading, endPoint:
+                            .bottomTrailing))
         }
         .frame(maxWidth: .infinity)
         .padding()
     }
-    
-    
+
     private var menu: some View {
         Section {
             NavigationLink(destination: HomeView()) {
@@ -65,11 +65,10 @@ struct PersonView: View {
             Label("Settings", systemImage: "gearshape")
             Label("Payment", systemImage: "creditcard.and.123")
             Label("Help", systemImage: "questionmark.circle")
-        } 
+        }
         .listRowSeparator(.hidden)
     }
-    
-    
+
     private var links: some View {
         Section {
             Link(destination: URL(string: "https://designcode.io")!) {

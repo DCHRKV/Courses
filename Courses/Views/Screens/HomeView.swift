@@ -10,11 +10,11 @@ import SwiftUI
 struct HomeView: View {
     @State private var hasCollapsed = false
     private let coordinates = "scroll"
-    
+
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
-            
+
             ScrollView {
                 scrollDetection
                 featured
@@ -28,7 +28,7 @@ struct HomeView: View {
         )
         }
     }
-    
+
     var scrollDetection: some View {
         GeometryReader { proxy in
             Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named(coordinates)).minY)
@@ -39,9 +39,9 @@ struct HomeView: View {
                 hasCollapsed = value < 0
             }
         })
-        
+
     }
-    
+
     var featured: some View {
         TabView {
             ForEach(courses) { course in

@@ -10,8 +10,7 @@ import SwiftUI
 struct MatchedView: View {
     @Namespace var namespace
     @State private var show = false
-    
-    
+
     var body: some View {
         ZStack {
             if !show {
@@ -37,7 +36,7 @@ struct MatchedView: View {
             }
         }
     }
-    
+
     var collapsedCourseView: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Build a SwiftUI app for iOS 15")
@@ -54,7 +53,7 @@ struct MatchedView: View {
                 .matchedGeometryEffect(id: "text", in: namespace)
         }
     }
-    
+
     var expandedCourseView: some View {
         VStack(alignment: .leading, spacing: 12) {
             Spacer()
@@ -73,9 +72,8 @@ struct MatchedView: View {
                 .matchedGeometryEffect(id: "text", in: namespace)
         }
     }
-    
-}
 
+}
 
 struct MatchedView_Previews: PreviewProvider {
     static var previews: some View {
