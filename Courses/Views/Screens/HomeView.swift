@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var hasCollapsed = false
+    @Namespace var namespace
+    @State private var courseViewShown = false
+    @State var showStatusBar = true
     private let coordinates = "scroll"
 
     var body: some View {
@@ -17,6 +20,21 @@ struct HomeView: View {
             ScrollView {
                 scrollDetection
                 featured
+                Text("Courses in progress".uppercased())
+                    .font(.footnote)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                if !courseViewShown {
+                    CourseItem(namespace: namespace, show: $courseViewShown)
+                        .onTapGesture {
+                            withAnimation(.openCard) {
+                                courseViewShown.toggle()
+                                showStatusBar = false
+                            }
+                        }
+                }
             }
             .coordinateSpace(name: coordinates)
             .safeAreaInset(edge: .top, content: {
@@ -25,10 +43,26 @@ struct HomeView: View {
             .overlay(
                 NavigationBar(title: "Featured", hasCollapsed: $hasCollapsed)
             )
+            if courseViewShown {
+                CourseView(namespace: namespace, show: $courseViewShown)
+                    .zIndex(1)
+                    .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+                                            removal: .opacity.animation(.easeInOut(duration: 0.1))))
+            }
+        }
+        .statusBar(hidden: !showStatusBar)
+        .onChange(of: courseViewShown) { newValue in
+            withAnimation(.closeCard) {
+                if newValue {
+                    showStatusBar = false
+                } else {
+                    showStatusBar = true
+                }
+            }
         }
     }
 
-    var scrollDetection: some View {
+    private var scrollDetection: some View {
         GeometryReader { proxy in
             Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named(coordinates)).minY)
         }
@@ -38,10 +72,9 @@ struct HomeView: View {
                 hasCollapsed = value < 0
             }
         })
-
     }
 
-    var featured: some View {
+    private var featured: some View {
         TabView {
             ForEach(courses) { course in
                 GeometryReader { proxy in
