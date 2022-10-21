@@ -12,6 +12,7 @@ struct HomeView: View {
     @Namespace var namespace
     @State private var courseViewShown = false
     @State var showStatusBar = true
+    @State var selectedID = UUID()
     private let coordinates = "scroll"
 
     var body: some View {
@@ -27,13 +28,17 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 20)
                 if !courseViewShown {
-                    CourseItem(namespace: namespace, show: $courseViewShown)
-                        .onTapGesture {
-                            withAnimation(.openCard) {
-                                courseViewShown.toggle()
-                                showStatusBar = false
-                            }
-                        }
+                    cards
+                } else {
+                    ForEach(courses) { course in
+                        Rectangle()
+                            .fill(.white)
+                            .frame(height: 300)
+                            .cornerRadius(300)
+                            .shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
+                            .opacity(0.3)
+                        .padding(.horizontal, 30)
+                    }
                 }
             }
             .coordinateSpace(name: coordinates)
@@ -44,10 +49,7 @@ struct HomeView: View {
                 NavigationBar(title: "Featured", hasCollapsed: $hasCollapsed)
             )
             if courseViewShown {
-                CourseView(namespace: namespace, show: $courseViewShown)
-                    .zIndex(1)
-                    .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.1)),
-                                            removal: .opacity.animation(.easeInOut(duration: 0.1))))
+                detail
             }
         }
         .statusBar(hidden: !showStatusBar)
@@ -76,7 +78,7 @@ struct HomeView: View {
 
     private var featured: some View {
         TabView {
-            ForEach(courses) { course in
+            ForEach(featuredCourses) { course in
                 GeometryReader { proxy in
                     FeaturedItem(course: course)
                         .padding(.vertical, 40)
@@ -96,6 +98,28 @@ struct HomeView: View {
         .background(
             Image("Blob 1")
                 .offset(x: 20))
+    }
+    private var cards: some View {
+        ForEach(courses) { course in
+            CourseItem(namespace: namespace, course: course, show: $courseViewShown)
+                .onTapGesture {
+                    withAnimation(.openCard) {
+                        courseViewShown.toggle()
+                        showStatusBar = false
+                        selectedID = course.id
+                    }
+                }
+        }
+    }
+    private var detail: some View {
+        ForEach(courses) { course in
+            if course.id == selectedID {
+                CourseView(namespace: namespace, course: course, show: $courseViewShown)
+                    .zIndex(1)
+                    .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+                                            removal: .opacity.animation(.easeInOut(duration: 0.1))))
+            }
+        }
     }
 }
 

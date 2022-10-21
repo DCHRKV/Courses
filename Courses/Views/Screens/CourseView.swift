@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CourseView: View {
     var namespace: Namespace.ID
+    var course: Course = courses[0]
     @Binding var show: Bool
 
     var body: some View {
@@ -16,7 +17,7 @@ struct CourseView: View {
             ScrollView {
                 cover
                 content
-                    .offset(y: 120)
+                    .offset(y: 100)
                     .padding(.bottom, 200)
             }
             .background(Color("Background"))
@@ -32,35 +33,35 @@ struct CourseView: View {
         .frame(height: 500)
         .foregroundStyle(.black)
         .background(
-            Image("Illustration 5")
+            Image(course.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: "image", in: namespace)
+                .matchedGeometryEffect(id: "image\(course.id)", in: namespace)
         )
         .background(
-            Image("Background 3")
+            Image(course.background)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background", in: namespace)
+                .matchedGeometryEffect(id: "background\(course.id)", in: namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask", in: namespace)
+                .matchedGeometryEffect(id: "mask\(course.id)", in: namespace)
         )
         .overlay(
             VStack(alignment: .leading, spacing: 12) {
-                Text("SwiftUI for iOS 15")
+                Text(course.title)
                     .font(.largeTitle.weight(.bold))
                     .multilineTextAlignment(.leading)
-                    .lineLimit(1)
-                    .matchedGeometryEffect(id: "title", in: namespace)
-                Text("21 sections - 4 hours".uppercased())
+                    .lineLimit(nil)
+                    .matchedGeometryEffect(id: "title\(course.id)", in: namespace)
+                Text(course.subtitle.uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle", in: namespace)
-                Text("Design and code a SwiftUI 3 app with custom layouts, animations and gestures using Xcode 13, SF Symbols 3, Canvas, Concurrency, Searchable and a whole lot more")
+                    .matchedGeometryEffect(id: "subtitle\(course.id)", in: namespace)
+                Text(course.text)
                     .font(.footnote)
                     .lineLimit(1)
-                    .matchedGeometryEffect(id: "text", in: namespace)
+                    .matchedGeometryEffect(id: "text\(course.id)", in: namespace)
                 Divider()
                 HStack {
                     Image(systemName: "person.circle")
@@ -78,7 +79,7 @@ struct CourseView: View {
                     Rectangle()
                         .fill(.ultraThinMaterial)
                         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .matchedGeometryEffect(id: "blur", in: namespace)
+                        .matchedGeometryEffect(id: "blur\(course.id)", in: namespace)
                 )
                 .offset(y: 240)
                 .padding(20)
@@ -88,6 +89,7 @@ struct CourseView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text("21 topics".uppercased())
                 .font(.title3).fontWeight(.medium).italic()
+                .matchedGeometryEffect(id: "topics", in: namespace)
             Text("All techniques are explained step-by-step, in a beginner-friendly format so that you can easily follow in a cohesive way.")
                 .font(.footnote).italic()
         }
