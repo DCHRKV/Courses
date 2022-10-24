@@ -22,7 +22,7 @@ struct CourseView: View {
             }
             .background(Color("Background"))
             .ignoresSafeArea()
-            button
+            closeButton
         }
     }
     var cover: some View {
@@ -96,7 +96,7 @@ struct CourseView: View {
         .padding()
     }
 
-    private var button: some View {
+    private var closeButton: some View {
         Button {
             withAnimation(.closeCard) {
                 show.toggle()

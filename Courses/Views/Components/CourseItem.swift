@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CourseItem: View {
-    var namespace: Namespace.ID
-    var course: Course = courses[0]
+    var namespace: Namespace.ID // Can't be private because of initialization in preview
+    var course: Course = courses[0] // Can't be private because of initialization in preview
     @Binding var show: Bool
 
     var body: some View {
