@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var courseViewShown = false
     @State var showStatusBar = true
     @State var selectedID = UUID()
+    @EnvironmentObject var model: Model
     private let coordinates = "scroll"
 
     var body: some View {
@@ -105,6 +106,7 @@ struct HomeView: View {
                 .onTapGesture {
                     withAnimation(.openCard) {
                         courseViewShown.toggle()
+                        model.showDetail.toggle()
                         showStatusBar = false
                         selectedID = course.id
                     }
@@ -130,5 +132,6 @@ struct HomeView_Previews: PreviewProvider {
             HomeView()
                 .preferredColorScheme(.dark)
         }
+        .environmentObject(Model())
     }
 }
