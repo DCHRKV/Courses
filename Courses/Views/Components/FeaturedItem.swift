@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeaturedItem: View {
     var course: Course
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             Spacer()
@@ -24,7 +24,13 @@ struct FeaturedItem: View {
             Text(course.title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundStyle(.linearGradient(colors: [.red, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .foregroundStyle(
+                    .linearGradient(
+                        colors: [.red, .blue],
+                        startPoint:
+                                .topLeading,
+                        endPoint:
+                                .bottomTrailing))
             Text(course.subtitle.uppercased())
                 .font(.footnote)
                 .fontWeight(.semibold)
@@ -47,6 +53,6 @@ struct FeaturedItem: View {
 
 struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItem(course: courses[0])
+        FeaturedItem(course: featuredCourses[0])
     }
 }

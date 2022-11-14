@@ -10,8 +10,10 @@
 		27098BCB28EF1502002E5D26 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098BCA28EF1502002E5D26 /* Tab.swift */; };
 		2772B7F228EC4D7700399C27 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772B7F128EC4D7700399C27 /* Styles.swift */; };
 		2772B7F428EC688E00399C27 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772B7F328EC688E00399C27 /* PersonView.swift */; };
-		2795143E28F89B620037F5A6 /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795143D28F89B620037F5A6 /* MatchedView.swift */; };
 		27ADFAA628F0A3C80070026C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADFAA528F0A3C80070026C /* HomeView.swift */; };
+		27BBCA052901BA7C00813EE6 /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBCA042901BA7C00813EE6 /* CourseItem.swift */; };
+		27BBCA072901BBBC00813EE6 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBCA062901BBBC00813EE6 /* CourseView.swift */; };
+		27BBCA092901C7FF00813EE6 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBCA082901C7FF00813EE6 /* Animations.swift */; };
 		27C3185728EA2410006805AC /* CoursesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3185628EA2410006805AC /* CoursesApp.swift */; };
 		27C3185928EA2410006805AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3185828EA2410006805AC /* ContentView.swift */; };
 		27C3185B28EA2412006805AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C3185A28EA2412006805AC /* Assets.xcassets */; };
@@ -22,14 +24,17 @@
 		27FA041828F5B3FC00D87894 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA041728F5B3FC00D87894 /* NavigationBar.swift */; };
 		27FA041A28F7208300D87894 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA041928F7208300D87894 /* PreferenceKeys.swift */; };
 		27FA041C28F7336A00D87894 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA041B28F7336A00D87894 /* Course.swift */; };
+		CE5B00B6CC4C5817CEE7E8C0 /* Pods_Courses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9264AE3940900292C300CB28 /* Pods_Courses.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27098BCA28EF1502002E5D26 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		2772B7F128EC4D7700399C27 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		2772B7F328EC688E00399C27 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
-		2795143D28F89B620037F5A6 /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
 		27ADFAA528F0A3C80070026C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		27BBCA042901BA7C00813EE6 /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
+		27BBCA062901BBBC00813EE6 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		27BBCA082901C7FF00813EE6 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		27C3185328EA2410006805AC /* Courses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C3185628EA2410006805AC /* CoursesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesApp.swift; sourceTree = "<group>"; };
 		27C3185828EA2410006805AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +46,9 @@
 		27FA041728F5B3FC00D87894 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		27FA041928F7208300D87894 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		27FA041B28F7336A00D87894 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		9264AE3940900292C300CB28 /* Pods_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA815676E6398C3B3154AB01 /* Pods-Courses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Courses.release.xcconfig"; path = "Target Support Files/Pods-Courses/Pods-Courses.release.xcconfig"; sourceTree = "<group>"; };
+		CCA6AFCB13FD9E736E37A1A0 /* Pods-Courses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Courses.debug.xcconfig"; path = "Target Support Files/Pods-Courses/Pods-Courses.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,12 +56,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5B00B6CC4C5817CEE7E8C0 /* Pods_Courses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06BDD8ACA78DECAA5B2376F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9264AE3940900292C300CB28 /* Pods_Courses.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27ADFAA728F0A5DA0070026C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +86,7 @@
 			children = (
 				27D36B5428EDDB3000793563 /* BlobView.swift */,
 				27FA041528F5B2B600D87894 /* FeaturedItem.swift */,
+				27BBCA042901BA7C00813EE6 /* CourseItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -77,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2772B7F128EC4D7700399C27 /* Styles.swift */,
+				27BBCA082901C7FF00813EE6 /* Animations.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -96,6 +115,8 @@
 			children = (
 				27C3185528EA2410006805AC /* Courses */,
 				27C3185428EA2410006805AC /* Products */,
+				97DA103981684A8181733B15 /* Pods */,
+				06BDD8ACA78DECAA5B2376F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,9 +164,18 @@
 			children = (
 				27ADFAA528F0A3C80070026C /* HomeView.swift */,
 				2772B7F328EC688E00399C27 /* PersonView.swift */,
-				2795143D28F89B620037F5A6 /* MatchedView.swift */,
+				27BBCA062901BBBC00813EE6 /* CourseView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		97DA103981684A8181733B15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCA6AFCB13FD9E736E37A1A0 /* Pods-Courses.debug.xcconfig */,
+				CA815676E6398C3B3154AB01 /* Pods-Courses.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +185,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C3186128EA2412006805AC /* Build configuration list for PBXNativeTarget "Courses" */;
 			buildPhases = (
+				2795145B290035FF0037F5A6 /* ShellScript */,
+				CF8EC281A9244F5B1E77754B /* [CP] Check Pods Manifest.lock */,
 				27C3184F28EA2410006805AC /* Sources */,
 				27C3185028EA2410006805AC /* Frameworks */,
 				27C3185128EA2410006805AC /* Resources */,
@@ -213,6 +245,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2795145B290035FF0037F5A6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		CF8EC281A9244F5B1E77754B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Courses-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27C3184F28EA2410006805AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,9 +294,10 @@
 			files = (
 				27FA041C28F7336A00D87894 /* Course.swift in Sources */,
 				27FA041A28F7208300D87894 /* PreferenceKeys.swift in Sources */,
+				27BBCA072901BBBC00813EE6 /* CourseView.swift in Sources */,
 				27D36B5528EDDB3100793563 /* BlobView.swift in Sources */,
+				27BBCA052901BA7C00813EE6 /* CourseItem.swift in Sources */,
 				2772B7F228EC4D7700399C27 /* Styles.swift in Sources */,
-				2795143E28F89B620037F5A6 /* MatchedView.swift in Sources */,
 				2772B7F428EC688E00399C27 /* PersonView.swift in Sources */,
 				27D36B5728EDF08C00793563 /* TabBar.swift in Sources */,
 				27C3185928EA2410006805AC /* ContentView.swift in Sources */,
@@ -230,6 +305,7 @@
 				27FA041628F5B2B600D87894 /* FeaturedItem.swift in Sources */,
 				27ADFAA628F0A3C80070026C /* HomeView.swift in Sources */,
 				27C3185728EA2410006805AC /* CoursesApp.swift in Sources */,
+				27BBCA092901C7FF00813EE6 /* Animations.swift in Sources */,
 				27098BCB28EF1502002E5D26 /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +429,7 @@
 		};
 		27C3186228EA2412006805AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCA6AFCB13FD9E736E37A1A0 /* Pods-Courses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +459,7 @@
 		};
 		27C3186328EA2412006805AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA815676E6398C3B3154AB01 /* Pods-Courses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

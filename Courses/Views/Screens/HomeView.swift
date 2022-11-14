@@ -9,15 +9,37 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var hasCollapsed = false
+    @Namespace var namespace
+    @State private var courseViewShown = false
+    @State var showStatusBar = true
+    @State var selectedID = UUID()
     private let coordinates = "scroll"
-    
+
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
-            
             ScrollView {
                 scrollDetection
                 featured
+                Text("Courses in progress".uppercased())
+                    .font(.footnote)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                if !courseViewShown {
+                    cards
+                } else {
+                    ForEach(courses) { course in
+                        Rectangle()
+                            .fill(.white)
+                            .frame(height: 300)
+                            .cornerRadius(300)
+                            .shadow(color: Color("Shadow"), radius: 20, x: 0, y: 10)
+                            .opacity(0.3)
+                        .padding(.horizontal, 30)
+                    }
+                }
             }
             .coordinateSpace(name: coordinates)
             .safeAreaInset(edge: .top, content: {
@@ -25,11 +47,24 @@ struct HomeView: View {
             })
             .overlay(
                 NavigationBar(title: "Featured", hasCollapsed: $hasCollapsed)
-        )
+            )
+            if courseViewShown {
+                detail
+            }
+        }
+        .statusBar(hidden: !showStatusBar)
+        .onChange(of: courseViewShown) { newValue in
+            withAnimation(.closeCard) {
+                if newValue {
+                    showStatusBar = false
+                } else {
+                    showStatusBar = true
+                }
+            }
         }
     }
-    
-    var scrollDetection: some View {
+
+    private var scrollDetection: some View {
         GeometryReader { proxy in
             Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named(coordinates)).minY)
         }
@@ -39,12 +74,11 @@ struct HomeView: View {
                 hasCollapsed = value < 0
             }
         })
-        
     }
-    
-    var featured: some View {
+
+    private var featured: some View {
         TabView {
-            ForEach(courses) { course in
+            ForEach(featuredCourses) { course in
                 GeometryReader { proxy in
                     FeaturedItem(course: course)
                         .padding(.vertical, 40)
@@ -55,7 +89,7 @@ struct HomeView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 210)
                             .offset(x: 40, y: -95)
-                    )
+                        )
                 }
             }
         }
@@ -64,6 +98,28 @@ struct HomeView: View {
         .background(
             Image("Blob 1")
                 .offset(x: 20))
+    }
+    private var cards: some View {
+        ForEach(courses) { course in
+            CourseItem(namespace: namespace, course: course, show: $courseViewShown)
+                .onTapGesture {
+                    withAnimation(.openCard) {
+                        courseViewShown.toggle()
+                        showStatusBar = false
+                        selectedID = course.id
+                    }
+                }
+        }
+    }
+    private var detail: some View {
+        ForEach(courses) { course in
+            if course.id == selectedID {
+                CourseView(namespace: namespace, course: course, show: $courseViewShown)
+                    .zIndex(1)
+                    .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+                                            removal: .opacity.animation(.easeInOut(duration: 0.1))))
+            }
+        }
     }
 }
 

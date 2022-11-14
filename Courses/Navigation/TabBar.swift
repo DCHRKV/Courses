@@ -29,7 +29,7 @@ struct TabBar: View {
         .frame(maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
     }
-    
+
     var buttons: some View {
         ForEach(tabItems) { item in
             Button {
@@ -52,7 +52,7 @@ struct TabBar: View {
             .blendMode(selectedTab == item.tab ? .overlay : .normal)
         }
     }
-    
+
     var backgroundCircle: some View {
         HStack {
             if selectedTab == .account { Spacer()}
@@ -71,7 +71,7 @@ struct TabBar: View {
         }
         .padding(.horizontal, 8)
     }
-    
+
     var overlayLine: some View {
         HStack {
             if selectedTab == .account { Spacer()}

@@ -11,7 +11,7 @@ struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     var body: some View {
         ZStack(alignment: .bottom) {
-            
+
             switch selectedTab {
             case .home:
                 HomeView()
@@ -39,6 +39,6 @@ struct ContentView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .previewDevice("iPhone 13")
         }
-        
+
     }
 }
