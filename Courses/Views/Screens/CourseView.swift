@@ -98,29 +98,36 @@ struct CourseView: View {
     }
 
     private var closeButton: some View {
-        Button {
-            withAnimation(.closeCard) {
-                show.toggle()
-                model.showDetail.toggle()
+        VStack {
+            Button {
+                withAnimation(.closeCard) {
+                    show.toggle()
+                    model.showDetail.toggle()
+                }
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.body.bold())
+                    .foregroundColor(.secondary)
+                    .padding(8)
+                    .background(.ultraThinMaterial, in: Circle())
             }
-        } label: {
-            Image(systemName: "xmark")
-                .font(.body.bold())
-                .foregroundColor(.secondary)
-                .padding(8)
-                .background(.ultraThinMaterial, in: Circle())
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+            .padding(20)
+            .ignoresSafeArea()
+            Link("OPEN", destination: URL(string: course.link)!)
+                .font(.title3)
+                .buttonStyle(.borderedProminent)
+                .cornerRadius(50)
+            
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-        .padding(20)
-        .ignoresSafeArea()
     }
-}
 
-struct CourseView_Previews: PreviewProvider {
-    @Namespace static var namespace
+    struct CourseView_Previews: PreviewProvider {
+        @Namespace static var namespace
 
-    static var previews: some View {
-        CourseView(namespace: namespace, show: .constant(true))
-            .environmentObject(Model())
+        static var previews: some View {
+            CourseView(namespace: namespace, show: .constant(true))
+                .environmentObject(Model())
+        }
     }
 }
