@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SearchView: View {
 
-    @State var text = ""
+    @State private var text = ""
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             List {
-                ForEach(courses.filter { $0.title.contains(text) }) { item in
+                ForEach(courses.filter { $0.title.contains(text) || text == "" }) { item in
                     Text(item.title)
                 }
             }
@@ -22,6 +23,8 @@ struct SearchView: View {
                         prompt: "Swift UI, Combine and Data, Concurrency")
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: Button { presentationMode.wrappedValue.dismiss() }
+                                label: {Text("Done").bold()} )
         }
     }
 }
