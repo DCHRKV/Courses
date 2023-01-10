@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationBar: View {
     var title = ""
     @Binding var hasCollapsed: Bool
+    @State var showSearch = false
 
     var body: some View {
         ZStack {
@@ -26,12 +27,19 @@ struct NavigationBar: View {
                 .offset(y: hasCollapsed ? -4 : 0)
 
             HStack(spacing: 15) {
-                Image(systemName: "magnifyingglass")
-                    .font(.body.weight(.bold))
-                    .frame(width: 35, height: 35)
-                    .foregroundStyle(.secondary)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                Button {
+                    showSearch = true
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                        .font(.body.weight(.bold))
+                        .frame(width: 35, height: 35)
+                        .foregroundStyle(.secondary)
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                     .strokeStyle(cornerRadius: 14)
+                }
+                .sheet(isPresented: $showSearch) {
+                    SearchView()
+                }
 
                 Image(systemName: "person.circle")
                     .font(.body.weight(.bold))
